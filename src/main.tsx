@@ -3,14 +3,17 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import { AppStoreProvider } from './context/AppStore.tsx'
+import { ThemeProvider } from './context/Theme.tsx'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <AppStoreProvider>
-        <App />
-      </AppStoreProvider>
+      <ThemeProvider>
+        <AppStoreProvider>
+          <App />
+        </AppStoreProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </StrictMode>,
 )

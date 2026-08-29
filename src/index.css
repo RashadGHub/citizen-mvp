@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
@@ -18,6 +20,10 @@
   --color-party-d: #1d4e89;
   --color-party-r: #c41e3a;
   --color-party-i: #4a5563;
+  --color-tint-blue: #e8eef5;
+  --color-tint-red: #f6e8ea;
+  --color-tint-neutral: #ececec;
+  --color-fill-muted: #c5c1b8;
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -33,6 +39,29 @@
     0px 0px 0px 1px rgba(0, 0, 0, 0.09),
     0px 1px 2px -1px rgba(0, 0, 0, 0.08),
     0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+html.dark {
+  --color-cream: #0e1218;
+  --color-cream-2: #171d26;
+  --color-paper: #151b24;
+  --color-navy: #eef1f5;
+  --color-navy-muted: #c5ccd6;
+  --color-ink: #eef1f5;
+  --color-muted: #9aa3ae;
+  --color-subtle: #7b8490;
+  --color-line: #2a3340;
+  --color-red: #e45a6c;
+  --color-blue: #7aa3d4;
+  --color-party-d: #7aa3d4;
+  --color-party-r: #e45a6c;
+  --color-party-i: #8b939e;
+  --color-tint-blue: #1a2740;
+  --color-tint-red: #3a1c24;
+  --color-tint-neutral: #242a33;
+  --color-fill-muted: #5c6570;
+  --shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-border-hover: 0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 
 html {

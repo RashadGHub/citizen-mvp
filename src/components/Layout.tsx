@@ -1,5 +1,6 @@
-import { Home, Search, SlidersHorizontal, UserRound } from 'lucide-react'
+import { Home, Moon, Search, SlidersHorizontal, Sun, UserRound } from 'lucide-react'
 import { NavLink, Outlet } from 'react-router-dom'
+import { useTheme } from '../context/Theme'
 import { Wordmark } from './Wordmark'
 
 const NAV = [
@@ -21,6 +22,8 @@ function linkClass(active: boolean, desktop: boolean): string {
 }
 
 export function Layout() {
+  const { theme, toggle } = useTheme()
+
   return (
     <div className="min-h-dvh bg-cream text-navy">
       <aside className="fixed inset-y-0 left-0 z-20 hidden w-60 border-r border-line bg-cream md:flex md:flex-col">
@@ -41,9 +44,24 @@ export function Layout() {
             </NavLink>
           ))}
         </nav>
-        <p className="mt-auto px-5 py-6 text-[11px] leading-relaxed text-subtle">
-          Politically neutral sample data. Not voter guidance.
-        </p>
+        <div className="mt-auto px-3 pb-6">
+          <button
+            type="button"
+            onClick={toggle}
+            className="flex h-11 w-full items-center gap-3 rounded-lg px-3 text-sm text-muted transition-colors duration-200 hover:bg-cream-2 hover:text-navy"
+            aria-pressed={theme === 'dark'}
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-[18px] w-[18px]" strokeWidth={1.75} />
+            ) : (
+              <Moon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+            )}
+            {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          </button>
+          <p className="mt-3 px-2 text-[11px] leading-relaxed text-subtle">
+            Politically neutral sample data. Not voter guidance.
+          </p>
+        </div>
       </aside>
 
       <div className="md:pl-60">

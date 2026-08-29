@@ -8,10 +8,10 @@ function initials(name: string): string {
 }
 
 const PARTY_TONE: Record<Party, string> = {
-  Democrat: 'bg-[#e8eef5] text-blue',
-  Republican: 'bg-[#f6e8ea] text-red',
-  Independent: 'bg-[#ececec] text-navy-muted',
-  Other: 'bg-[#ececec] text-navy-muted',
+  Democrat: 'bg-tint-blue text-blue',
+  Republican: 'bg-tint-red text-red',
+  Independent: 'bg-tint-neutral text-navy-muted',
+  Other: 'bg-tint-neutral text-navy-muted',
 }
 
 export function InitialsAvatar({

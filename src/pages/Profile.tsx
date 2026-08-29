@@ -7,6 +7,7 @@ import { PageHeader } from '../components/PageHeader'
 import { ScoreBar } from '../components/ScoreBar'
 import { Section } from '../components/Section'
 import { useAppStore } from '../context/AppStore'
+import { useTheme } from '../context/Theme'
 import { DIMENSION_LABELS, getCandidateById, getElectionById } from '../data'
 import type { QuizDimension } from '../types'
 
@@ -14,6 +15,7 @@ const DIMENSIONS = Object.keys(DIMENSION_LABELS) as QuizDimension[]
 
 export function Profile() {
   const store = useAppStore()
+  const { theme, setTheme } = useTheme()
   const [confirmLogout, setConfirmLogout] = useState(false)
 
   const savedElections = store.savedElectionIds
@@ -53,6 +55,17 @@ export function Profile() {
           />
           <p className="text-[11px] text-subtle">Saved automatically on this device.</p>
         </form>
+      </Section>
+
+      <Section title="Appearance" description="Applies on this device only. Light mode is unchanged.">
+        <div className="overflow-hidden rounded-2xl bg-paper shadow-border">
+          <Toggle
+            label="Dark mode"
+            description="Dark navy canvas, same layout and type."
+            checked={theme === 'dark'}
+            onChange={(checked) => setTheme(checked ? 'dark' : 'light')}
+          />
+        </div>
       </Section>
 
       <Section

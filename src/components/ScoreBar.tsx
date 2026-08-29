@@ -14,7 +14,7 @@ export function ScoreBar({
       : tone === 'red'
         ? 'bg-red'
         : tone === 'muted'
-          ? 'bg-[#c5c1b8]'
+          ? 'bg-fill-muted'
           : 'bg-navy'
 
   return (
